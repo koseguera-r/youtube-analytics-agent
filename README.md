@@ -4,6 +4,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28-red)](https://streamlit.io/)
 [![BigQuery ML](https://img.shields.io/badge/BigQuery%20ML-XGBoost-orange)](https://cloud.google.com/bigquery-ml)
 [![Gemini API](https://img.shields.io/badge/Gemini%20API-RAG-blueviolet)](https://ai.google.dev/)
+[![Looker Studio](https://img.shields.io/badge/Looker%20Studio-Dashboard-blue)](https://datastudio.google.com/reporting/1bcb2a87-8ba6-43f7-8405-52fc05328a60)
 
 ## 📌 Descripción del proyecto
 
@@ -65,6 +66,14 @@ youtube-analytics-agent/
 https://static.streamlit.io/badges/streamlit_badge_black_white.svg
 
 Pruébala aquí: YouTube Analytics Agent
+📊 Dashboard interactivo en Looker Studio
+
+Explora las métricas del canal de YouTube de forma visual e interactiva:
+
+https://img.shields.io/badge/Looker%20Studio-Dashboard-blue
+
+🔗 Ver Dashboard en Looker Studio
+
 💡 Ejemplos de preguntas que puedes hacerle al agente
 
     "¿Qué temas tienen mejor engagement en mi canal?"
