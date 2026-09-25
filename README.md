@@ -34,80 +34,87 @@ El agente interpreta preguntas en lenguaje natural, consulta métricas almacenad
 | **Despliegue** | Streamlit Cloud, GitHub |
 
 ## 📁 Estructura del repositorio
+```text
 youtube-analytics-agent/
 ├── app.py # Interfaz principal de Streamlit
 ├── agent.py # Lógica del agente RAG y modelos ML
-├── secrets.toml # Configuración de credenciales (no versionado)
+├── .streamlit/
+│   └── secrets.toml # Configuración de credenciales (no versionado)
 ├── .gitignore # Archivos excluidos del repositorio
 ├── requirements.txt # Dependencias del proyecto
 └── README.md
-
+```
 ## 🚀 Cómo ejecutar localmente
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/koseguera-r/youtube-analytics-agent.git
+   git clone [https://github.com/koseguera-r/youtube-analytics-agent.git](https://github.com/koseguera-r/youtube-analytics-agent.git)
    cd youtube-analytics-agent
+   ```
+
 2. Crea un entorno virtual e instala dependencias:
-    python -m venv venv
-    source venv/bin/activate        # Linux/Mac
-    pip install -r requirements.txt
-3. Configura tus credenciales en secrets.toml:
-    PROJECT_ID = "tu-proyecto-gcp"
-    DATASET_ID = "youtube"
-    TABLE_NAME = "fact_final"
-    SEGMENTS_TABLE_NAME = "transcript_segments_transformers"
-    CHANNEL_ID = "tu-channel-id"
-    GOOGLE_API_KEY = "tu-api-key"
+   ```bash
+   python -m venv venv
+   source venv/bin/activate        # Linux/Mac
+   pip install -r requirements.txt
+   ```
+
+3. Configura tus credenciales en `.streamlit/secrets.toml`:
+   ```toml
+   PROJECT_ID = "tu-proyecto-gcp"
+   DATASET_ID = "youtube"
+   TABLE_NAME = "fact_final"
+   SEGMENTS_TABLE_NAME = "transcript_segments_transformers"
+   CHANNEL_ID = "tu-channel-id"
+   GOOGLE_API_KEY = "tu-api-key"
+   ```
+
 4. Ejecuta la aplicación:
-    streamlit run app.py
-🌐 Aplicación en vivo
+   ```bash
+   streamlit run app.py
+   ```
+---
 
-https://static.streamlit.io/badges/streamlit_badge_black_white.svg
+## 🌐 Enlaces del proyecto
 
-Pruébala aquí: YouTube Analytics Agent
-📊 Dashboard interactivo en Looker Studio
+* **Aplicación en vivo:** [![Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](TU_LINK_DE_STREAMLIT_AQUI)
+* **Dashboard en Looker Studio:** [![Looker Studio](https://img.shields.io/badge/Looker%20Studio-Dashboard-blue)](https://datastudio.google.com/reporting/1bcb2a87-8ba6-43f7-8405-52fc05328a60)
 
-Explora las métricas del canal de YouTube de forma visual e interactiva:
+## 💡 Ejemplos de preguntas que puedes hacerle al agente
 
-https://img.shields.io/badge/Looker%20Studio-Dashboard-blue
+- "¿Qué temas tienen mejor engagement en mi canal?"
 
-🔗 Ver Dashboard en Looker Studio
+- "¿En qué minuto hablé de relaciones tóxicas en el video de la semana pasada?"
 
-💡 Ejemplos de preguntas que puedes hacerle al agente
+- "¿Qué día me recomiendas subir un video?"
 
-    "¿Qué temas tienen mejor engagement en mi canal?"
+- "Dame el top 5 de videos con más views por minuto"
 
-    "¿En qué minuto hablé de relaciones tóxicas en el video de la semana pasada?"
+- "¿Qué videos superaron la predicción del modelo?"
 
-    "¿Qué día me recomiendas subir un video?"
+- "¿Cómo puedo mejorar el alcance de mi canal?"
 
-    "Dame el top 5 de videos con más views por minuto"
+## 🧠 ¿Cómo funciona el agente?
 
-    "¿Qué videos superaron la predicción del modelo?"
+1. Interpretación de la pregunta: El agente clasifica la intención del usuario (ranking, búsqueda de momentos, análisis de temas, etc.) usando Gemini.
 
-    "¿Cómo puedo mejorar el alcance de mi canal?"
+2. Recuperación de datos: Consulta métricas en BigQuery y, si es necesario, realiza búsqueda semántica en transcripciones con embeddings.
 
-🧠 ¿Cómo funciona el agente?
+3. Re-ranking contextual: Filtra y reordena los resultados considerando jerga mexicana, relevancia semántica y métricas de rendimiento.
+## 📈 Resultados destacados
 
-    Interpretación de la pregunta: El agente clasifica la intención del usuario (ranking, búsqueda de momentos, análisis de temas, etc.) usando Gemini.
+- Procesamiento de +250 videos y +300 registros de métricas del canal.
 
-    Recuperación de datos: Consulta métricas en BigQuery y, si es necesario, realiza búsqueda semántica en transcripciones con embeddings.
+- Modelo XGBoost con 90% de certeza en la predicción de vistas.
 
-    Re-ranking contextual: Filtra y reordena los resultados considerando jerga mexicana, relevancia semántica y métricas de rendimiento.
-📈 Resultados destacados
+- Búsqueda semántica con 98% de precisión al localizar el minuto exacto de un tema en transcripciones.
 
-    Procesamiento de +250 videos y +300 registros de métricas del canal.
+- Detección de patrones: los Shorts sobre dinero generan 44% más engagement que los podcasts de finanzas.
+---
+## 📫 Autor
+**Kevin Yael Oseguera Reyes**  
+[kevinose1666@gmail.com](mailto:kevinose1666@gmail.com)  
+[LinkedIn](https://www.linkedin.com/in/-osegukevin3b0) | [GitHub](https://github.com/koseguera-r)
 
-    Modelo XGBoost con 90% de certeza en la predicción de vistas.
-
-    Búsqueda semántica con 98% de precisión al localizar el minuto exacto de un tema en transcripciones.
-
-    Detección de patrones: los Shorts sobre dinero generan 44% más engagement que los podcasts de finanzas.
-
-📫 Autor
-
-Kevin Yael Oseguera Reyes
-kevinose1666@gmail.com
-LinkedIn | GitHub
-⭐ Si este proyecto te ha sido útil, no olvides darle una estrella en GitHub.
+---
+ *Si este proyecto te ha sido útil, no olvides darle una estrella.*
